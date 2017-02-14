@@ -8,30 +8,48 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../bower_components/polymer/polymer.html">
-<link rel="import" href="shared-styles.html">
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../shared-styles.html">
 
-<dom-module id="my-view1">
+<!-- element template -->
+<dom-module id="content-element">
+  <template>
+    <h2>
+      <content select=".title"></content>
+    </h2>
+    <div>
+      <content></content>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'content-element',
+    });
+  </script>
+</dom-module>
+
+<!-- usage -->
+<dom-module id="content-view">
   <template>
     <style include="shared-styles">
       :host {
         display: block;
-
         padding: 10px;
       }
     </style>
 
     <div class="card">
-      <div class="circle">1</div>
-      <h1>View One</h1>
-      <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
-      <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
+      <content-element>
+        <span class="title">span.title</span>
+        <span>span</span>
+        <div>div</div>
+      </content-element>
     </div>
   </template>
 
   <script>
     Polymer({
-      is: 'my-view1',
+      is: 'content-view',
     });
   </script>
 </dom-module>

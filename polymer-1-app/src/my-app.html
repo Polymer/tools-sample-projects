@@ -22,7 +22,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="my-icons.html">
 
-<dom-module id="my-app">
+<dom-module name="my-app">
   <template>
     <style>
       :host {
@@ -70,9 +70,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <app-drawer id="drawer">
         <app-toolbar>Menu</app-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-          <a name="view1" href="/view1">View One</a>
-          <a name="view2" href="/view2">View Two</a>
-          <a name="view3" href="/view3">View Three</a>
+          <a name="basic-view" href="/basic-view">Basic Element</a>
+          <a name="content-view" href="/content-view">v1 Content Selectors</a>
+          <a name="polymer-dom-view" href="/polymer-dom-view">v1 Polymer.dom() API</a>
+          <a name="name-view" href="/name-view">v1 Deprecated Patterns</a>
+          <a name="shadowdom-v0-styles-view" href="/shadowdom-v0-styles-view">Shadow DOM v0 Selectors</a>
         </iron-selector>
       </app-drawer>
 
@@ -89,12 +91,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <iron-pages
             selected="[[page]]"
             attr-for-selected="name"
-            fallback-selection="view404"
+            fallback-selection="not-found-view"
             role="main">
-          <my-view1 name="view1"></my-view1>
-          <my-view2 name="view2"></my-view2>
-          <my-view3 name="view3"></my-view3>
-          <my-view404 name="view404"></my-view404>
+          <basic-view name="basic-view"></basic-view>
+          <content-view name="content-view"></content-view>
+          <name-view name="name-view"></name-view>
+          <shadowdom-v0-styles-view name="shadowdom-v0-styles-view"></shadowdom-v0-styles-view>
+          <polymer-dom-view name="polymer-dom-view"></polymer-dom-view>
+          <not-found-view name="not-found-view"></not-found-view>
         </iron-pages>
       </app-header-layout>
     </app-drawer-layout>
@@ -117,7 +121,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       ],
 
       _routePageChanged: function(page) {
-        this.page = page || 'view1';
+        this.page = page || 'content-view';
 
         if (!this.$.drawer.persistent) {
           this.$.drawer.close();
@@ -126,12 +130,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       _pageChanged: function(page) {
         // Load page import on demand. Show 404 page if fails
-        var resolvedPageUrl = this.resolveUrl('my-' + page + '.html');
+        var resolvedPageUrl = this.resolveUrl('views/' + page + '.html');
         this.importHref(resolvedPageUrl, null, this._showPage404, true);
       },
 
       _showPage404: function() {
-        this.page = 'view404';
+        this.page = 'not-found-view';
       },
     });
   </script>
