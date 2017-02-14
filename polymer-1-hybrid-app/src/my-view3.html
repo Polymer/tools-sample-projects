@@ -9,27 +9,31 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="shared-styles.html">
 
-<dom-module name="my-view404">
+<!-- NOTE: This is a 1.x element with some 1.x  Polymer.dom & Shadow DOM APIs -->
+
+<dom-module name="my-view3">
   <template>
-    <style>
+    <style include="shared-styles">
       :host {
         display: block;
 
-        padding: 10px 20px;
+        padding: 10px;
       }
     </style>
 
-    <!--
-      If deploying in a folder replace href="/" with the full path to your site.
-      Such as: href=="http://polymerelements.github.io/polymer-starter-kit"
-    -->
-    Oops you hit a 404. <a href="/">Head back to home.</a>
+    <div class="card">
+      <div class="circle">3</div>
+      <h1>View Three</h1>
+      <p>Modus commodo minimum eum te, vero utinam assueverit per eu.</p>
+      <p>Ea duis bonorum nec, falli paulo aliquid ei eum.Has at minim mucius aliquam, est id tempor laoreet.Pro saepe pertinax ei, ad pri animal labores suscipiantur.</p>
+    </div>
   </template>
 
   <script>
     Polymer({
-      is: 'my-view404',
+      is: 'my-view3',
     });
   </script>
 </dom-module>
