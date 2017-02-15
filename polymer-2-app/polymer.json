@@ -16,5 +16,8 @@
   ],
   "extraDependencies": [
     "manifest.json"
-  ]
+  ],
+  "lint": {
+    "rules": ["polymer-2"]
+  }
 }
