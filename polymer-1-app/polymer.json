@@ -20,5 +20,25 @@
   ],
   "lint": {
     "rules": ["polymer-1"]
-  }
+  },
+  "builds": [
+    {
+      "name": "default"
+    },
+    {
+      "name": "optimized",
+      "insertPrefetchLinks": true,
+      "js": {"minify": true, "compile": true},
+      "css": {"minify": true},
+      "html": {"minify": true}
+    },
+    {
+      "name": "bundled",
+      "bundle": true,
+      "addServiceWorker": true,
+      "js": {"minify": true, "compile": true},
+      "css": {"minify": true},
+      "html": {"minify": true}
+    }
+  ]
 }
