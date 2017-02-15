@@ -7,7 +7,7 @@
     "src/views/name-view.html",
     "src/views/not-found-view.html",
     "src/views/polymer-dom-view.html",
-    "src/views/shadowdom-v0-styles-view.html",
+    "src/views/shadowdom-v0-styles-view.html"
   ],
   "sourceGlobs": [
     "src/**/*",
