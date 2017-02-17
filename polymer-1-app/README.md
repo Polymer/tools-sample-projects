@@ -1,3 +1,3 @@
-# Polymer 1.x app
+# polymer-1-app
 
-This app is based on the starter-kit template.
+The pure 1.0 app scenario is mostly a regression test of a scenario: our tooling shouldn't break 1.0 support. `polymer-1-app` contains several elements in the `views/` directory that highlight the use of Polymer 1.x-only patterns and APIs. When the application is viewed in a browser, each view is a separate page that should render and behave as expected. Linting, Testing, and Serving should continue to work for all of these application elements.
