@@ -1,0 +1,76 @@
+<!--
+@license
+Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<!--
+This view showcases the Shadow DOM v0 patterns supported by Polymer 1.0.
+-->
+
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="shadowdom-v0-styles-element">
+  <template>
+    <style include="shared-styles">
+
+      ::content * {
+        background-color: blue;
+      }
+      ::content > .header {
+        background-color: red;
+      }
+      :root {
+        --style-mixin: {
+          font-weight: bold;
+        };
+      }
+      :host > div {
+        @apply(--style-mixin);
+      };
+    </style>
+    <div class="card">
+      <content select=".header"></content>
+    </div>
+    <div class="card">
+      <content></content>
+    </div>
+    <div class="card">
+      This background should be bold with no background.
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'shadowdom-v0-styles-element',
+    });
+  </script>
+</dom-module>
+
+<!-- usage -->
+<dom-module id="shadowdom-v0-styles-view">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        padding: 10px;
+      }
+    </style>
+
+    <shadowdom-v0-styles-element>
+      <span class="header">This text should be bold with a red background.</span>
+      <span>This text should be bold with a blue background.</span>
+    </shadowdom-v0-styles-element>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'shadowdom-v0-styles-view',
+    });
+  </script>
+</dom-module>

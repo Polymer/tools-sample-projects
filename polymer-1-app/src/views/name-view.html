@@ -1,0 +1,39 @@
+<!--
+@license
+Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<!--
+This view showcases deprecated Polymer 1.0 template patterns, like using the dom-module "name" attribute
+and moving the style outside of the template.
+-->
+
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../shared-styles.html">
+
+<!-- usage -->
+<dom-module name="name-view">
+  <style include="shared-styles">
+    :host {
+      display: block;
+      padding: 10px;
+    }
+  </style>
+  <template>
+    <div class="card">
+      This element uses the deprecated name attribute instead of the id attribute.
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'name-view',
+    });
+  </script>
+</dom-module>

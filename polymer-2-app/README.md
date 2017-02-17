@@ -1,0 +1,3 @@
+# polymer-2-app
+
+The pure 2.0 app scenario represents an application completely migrated over to Polymer 2.0. `polymer-2-app` contains several elements in the `views/` directory that highlight the use of Polymer 2.x-only patterns and APIs. When the application is viewed in a browser, each view is a separate page that should render and behave as expected. Linting, Testing, and Serving should continue to work for all of these application elements.

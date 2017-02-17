@@ -21,8 +21,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <body>
     <script>
       WCT.loadSuites([
-        'basic-view.html?dom=shady',
+        // Load 'basic-view.html' test suite, using native shadow dom
         'basic-view.html?dom=shadow',
+        // Load 'basic-view.html' test suite, using shadydom
+        'basic-view.html?wc-shadydom=true',
       ]);
     </script>
   </body>

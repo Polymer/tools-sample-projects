@@ -1,0 +1,61 @@
+<!--
+@license
+Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<!--
+This view showcases the content element and content selectors for Polymer 1.0. These will not work in
+Polymer 2.0.
+-->
+
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../shared-styles.html">
+
+<!-- element template -->
+<dom-module id="content-element">
+  <template>
+    <h2>
+      <content select=".title"></content>
+    </h2>
+    <div>
+      <content></content>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'content-element',
+    });
+  </script>
+</dom-module>
+
+<!-- usage -->
+<dom-module id="content-view">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        padding: 10px;
+      }
+    </style>
+
+    <div class="card">
+      <content-element>
+        <span class="title">span.title</span>
+        <span>span</span>
+        <div>div</div>
+      </content-element>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'content-view',
+    });
+  </script>
+</dom-module>

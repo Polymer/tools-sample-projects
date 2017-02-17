@@ -3,23 +3,22 @@
   "shell": "src/my-app.html",
   "fragments": [
     "src/views/basic-view.html",
-    "src/views/content-view.html",
-    "src/views/name-view.html",
+    "src/views/id-view.html",
+    "src/views/native-dom-view.html",
     "src/views/not-found-view.html",
-    "src/views/polymer-dom-view.html",
-    "src/views/shadowdom-v0-styles-view.html"
+    "src/views/shadowdom-v1-styles-view.html",
+    "src/views/slot-view.html"
   ],
-  "sourceGlobs": [
+  "sources": [
     "src/**/*",
     "images/**/*",
     "bower.json"
   ],
-  "includeDependencies": [
-    "manifest.json",
-    "bower_components/webcomponentsjs/webcomponents-lite.min.js"
+  "extraDependencies": [
+    "manifest.json"
   ],
   "lint": {
-    "rules": ["polymer-1"]
+    "rules": ["polymer-2"]
   },
   "builds": [
     {

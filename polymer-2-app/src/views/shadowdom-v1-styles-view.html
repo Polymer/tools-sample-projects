@@ -1,0 +1,80 @@
+<!--
+@license
+Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<!--
+This view showcases the Shadow DOM v1 patterns supported by Polymer 2.0.
+-->
+
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="shadowdom-v1-styles-element">
+  <template>
+    <style include="shared-styles">
+
+      ::slotted(*) {
+        background-color: blue;
+      }
+      ::slotted(.header) {
+        background-color: red;
+      }
+      :root {
+        --style-mixin: {
+          font-weight: bold;
+        };
+      }
+      :host > div {
+        @apply(--style-mixin);
+      };
+    </style>
+    <div class="card">
+      <slot name="header"></slot>
+    </div>
+    <div class="card">
+      <slot></slot>
+    </div>
+    <div class="card">
+      This background should be bold with no background.
+    </div>
+  </template>
+  <script>
+    class ShadowDomV1StylesElement extends Polymer.Element {
+      static get is() { return 'shadowdom-v1-styles-element'; }
+    };
+
+    window.customElements.define(ShadowDomV1StylesElement.is, ShadowDomV1StylesElement);
+  </script>
+</dom-module>
+
+<!-- usage -->
+<dom-module id="shadowdom-v1-styles-view">
+  <template>
+    <style>
+      :host {
+        display: block;
+        padding: 10px;
+      }
+    </style>
+
+    <shadowdom-v1-styles-element>
+      <span class="header" slot="header">This text should be bold with a red background.</span>
+      <span>This text should be bold with a blue background.</span>
+    </shadowdom-v1-styles-element>
+  </template>
+
+  <script>
+    class ShadowDomV1StylesView extends Polymer.Element {
+      static get is() { return 'shadowdom-v1-styles-view'; }
+    };
+
+    window.customElements.define(ShadowDomV1StylesView.is, ShadowDomV1StylesView);
+  </script>
+</dom-module>

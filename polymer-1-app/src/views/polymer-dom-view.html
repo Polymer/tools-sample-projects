@@ -1,0 +1,69 @@
+<!--
+@license
+Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<!--
+This view showcases the Polymer 1.0 DOM APIs.
+-->
+
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../shared-styles.html">
+
+<!-- element template -->
+<dom-module id="polymer-dom-element">
+  <template>
+    <div>
+      <content></content>
+      <br />
+      <div>There are <strong>[[name]]</strong> childNode elements total.</div>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'polymer-dom-element',
+
+      properties: {
+        name: String
+      },
+
+      ready: function() {
+        var nodes = Polymer.dom(this).childNodes;
+        this.name = nodes.filter(function(n) { return n.nodeType === Node.ELEMENT_NODE }).length;
+      }
+    });
+  </script>
+</dom-module>
+
+<!-- usage -->
+<dom-module id="polymer-dom-view">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        padding: 10px;
+      }
+    </style>
+
+    <div class="card">
+      <polymer-dom-element>
+        <div>Element A</div>
+        <div>Element B</div>
+        <div>Element C</div>
+      </polymer-dom-element>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'polymer-dom-view',
+    });
+  </script>
+</dom-module>
